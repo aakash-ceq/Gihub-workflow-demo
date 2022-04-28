@@ -2,7 +2,10 @@ name: learn-github-actions
 on: [workflow_dispatch]
 jobs:
   check-python-version:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest,macos-latest,windows-latest]
+    runs-on: ${{matrix.os}}
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v3
