@@ -1,6 +1,6 @@
 name: learn-github-actions
 on: 
-  [pull,workflow_dispatch]
+  [pull_request,workflow_dispatch]
 jobs:
   check-bats-version:
     runs-on: ubuntu-latest
