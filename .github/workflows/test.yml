@@ -1,13 +1,14 @@
-name: learn-github-actions
+name: learn-github-actions-python
 on: 
-  [pull_request,workflow_dispatch]
+  [workflow_dispatch]
 jobs:
-  check-bats-version:
+  check-python-version:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: Set up python
+      - uses: actions/setup-python@v3
         with:
-          node-version: '14'
-      - run: npm install -g bats
-      - run: bats -v
+          python-version: '3.6'
+      - name: Display Python version
+      - run: python --version
