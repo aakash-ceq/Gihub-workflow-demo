@@ -16,5 +16,4 @@ jobs:
       - name: Run python Script
         run: |
           cd test 
-          chmod +x firstfile.py
           python firstfile.py
