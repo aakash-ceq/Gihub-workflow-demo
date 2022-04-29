@@ -15,5 +15,5 @@ jobs:
         run: python --version
       - name: Run python Script
         run : |
-            cd test 
-            python firstfile.py
+          cd test 
+          python firstfile.py
