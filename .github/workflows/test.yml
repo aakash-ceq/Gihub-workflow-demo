@@ -4,8 +4,7 @@ on:
   push:
     branches:
       - master
-  pull_request:
-  paths-ignore:
+    paths-ignore:
     - 'README.md'
 jobs:
   check-python-version:
