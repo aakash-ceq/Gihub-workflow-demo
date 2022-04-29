@@ -1,11 +1,6 @@
 name: learn-github-actions
 on: 
   workflow_dispatch:
-  push:
-    branches:
-      - master
-    paths-ignore:
-    - 'README.md'
 jobs:
   check-python-version:
     runs-on: ubuntu-latest
@@ -16,3 +11,5 @@ jobs:
           python-version: '3.6'
       - name: Python version
         run: python --version
+      - name: Run script
+        run: python main.py
