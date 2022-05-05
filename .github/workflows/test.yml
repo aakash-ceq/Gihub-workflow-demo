@@ -1,16 +1,20 @@
-name: learn-github-actions
-on: 
-  workflow_dispatch:
-  push:
-    branches:
-      - master
-    paths-ignore:
-    - 'README.md'
+name: First Cron Job
+
+       # Controls when the workflow will run
+on:
+  # Triggers the workflow every 1 minutes
+  schedule:
+    - cron: "*/1 * * * *"
+
+     # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  check-python-version:
+  # This workflow contains a single job called "cron"
+  cron:
+    # The type of runner that the job will run on
     runs-on: self-hosted
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - uses: actions/checkout@v3
-      
-      - name: Echo
-        run: echo Hello world!
+      # Runs a single command using the runners shell
+      - name: Run a one-line script
+        run: echo Hello, world!
