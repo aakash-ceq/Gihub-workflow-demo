@@ -24,7 +24,7 @@ jobs:
         run: echo Hello, world!
         
       - name: print present directory with linux
-        run: infconfig
+        run: ifconfig
         continue-on-error: true
         
       - name: print present directory with windows
