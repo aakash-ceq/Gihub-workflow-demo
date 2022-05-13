@@ -1,4 +1,4 @@
-name: learn-github-actions
+name: docker-github-actions
 on:
   workflow_dispatch:
 
