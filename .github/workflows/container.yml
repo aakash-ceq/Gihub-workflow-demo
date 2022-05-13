@@ -12,7 +12,7 @@ jobs:
       ports:
         - 80
       volumes:
-        - my_docker_volume:/
+        - my_docker_volume:/volume_mount
     steps:
         - name: check node version
           run: node -v
