@@ -3,17 +3,16 @@ on:
   workflow_dispatch:
 
 jobs:
-  check-python-version:
-    runs-on: ubuntu-latest
-  my_job:
-    container:
-      image: node:14.16
-      env:
-        NODE_ENV: development
-      ports:
-        - 80
-      volumes:
-        - my_docker_volume:/
-      steps:
+   my_job:
+   runs-on: ubuntu-latest
+   container:
+    image: node:14.16
+    env:
+      NODE_ENV: development
+    ports:
+      - 80
+    volumes:
+      - my_docker_volume:/
+    steps:
         - name: check node version
           run: node -v
