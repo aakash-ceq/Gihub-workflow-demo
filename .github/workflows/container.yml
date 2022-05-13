@@ -1,20 +1,22 @@
 name: docker-github-actions
 on:
-  workflow_dispatch:
-
+  workflow_dispatch: null
 jobs:
-   my_job:
+  my_job:
     runs-on: ubuntu-latest
     container:
-      image: python:3.10.4
+      image: 'python:3.10.4'
       env:
         NODE_ENV: development
       ports:
         - 80
       volumes:
-        - my_docker_volume:/volume_mount
+        - 'my_docker_volume:/volume_mount'
     steps:
-#         - name: check node version
-#           run: node -v
-        - name: check python version
-          run: python --version
+      - name: check python version
+        run: python --version
+  runner_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: check python version in runner
+        run: python --version
