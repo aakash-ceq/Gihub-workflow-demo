@@ -13,8 +13,6 @@ jobs:
         - 80
       volumes:
         - my_docker_volume:/volume_mount
-    services:
-      image: python:latest
     steps:
         - name: check node version
           run: node -v
