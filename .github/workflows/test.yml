@@ -44,5 +44,27 @@ jobs:
         --topic-arn ${{ steps.sns_topic_arn.outputs.topic_arn }} \
         --protocol email \
         --notification-endpoint abhishek.sharma@cloudeq.com
+        
+    - name: cloudwatch alarm
+      run:  |
+        aws cloudwatch put-metric-alarm \
+        --alarm-name Error-alarm-cssp-idle-EBS-lambda \
+        --alarm-description "Alarm when error occured in EBS lambda" \
+        --metric-name Errors --namespace AWS/Lambda \
+        --statistic Average --period 60 --threshold 0 \
+        --comparison-operator GreaterThanThreshold  \
+        --dimensions Name=FunctionName,Value=idle-resource-ebs-lambda-function \
+        --statistic Sum --evaluation-periods 1 \
+        --alarm-actions ${{ steps.sns_topic_arn.outputs.topic_arn }}
+
+        aws cloudwatch put-metric-alarm \
+        --alarm-name Error-alarm-cssp-idle-EIP-lambda \
+        --alarm-description "Alarm when error occured in EBS lambda" \
+        --metric-name Errors --namespace AWS/Lambda \
+        --statistic Average --period 60 --threshold 0 \
+        --comparison-operator GreaterThanThreshold  \
+        --dimensions Name=FunctionName,Value=idle-resource-eip-lambda-function \
+        --statistic Sum --evaluation-periods 1 \
+        --alarm-actions ${{ steps.sns_topic_arn.outputs.topic_arn }}
 
   
