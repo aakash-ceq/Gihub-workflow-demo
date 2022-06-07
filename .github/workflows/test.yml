@@ -24,9 +24,10 @@ jobs:
         aws-region: us-east-1
 
     - name: Create SNS topic
-      id: sns_topic_arn1
+      id: sns_topic_arn
       run:  |
         topic_arn=$(aws sns create-topic --name cssp-idle-resource-sns-topic)
+        echo "Arn: $topic_arn"
         echo "::set-output name=topic_arn::$topic_arn"
 
     - name: Subscribe to SNS topic
