@@ -26,7 +26,7 @@ jobs:
     - name: Create SNS topic
       id: sns_topic_arn
       run:  |
-        topic_arn=$(aws sns create-topic --name cssp-idle-resource-sns-topic --output text)
+        topic_arn=$(aws sns create-topic --name cssp-idle-resource-sns-topic)
         echo "Arn: $topic_arn"
         echo "::set-output name=topic_arn::$topic_arn"
 
