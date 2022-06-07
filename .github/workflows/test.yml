@@ -31,4 +31,18 @@ jobs:
         echo "::set-output name=topic_arn::$topic_arn"
 
     - name: Subscribe to SNS topic
-      run:  echo ${{ steps.sns_topic_arn.outputs.topic_arn }}
+      run:  |
+        echo ${{ steps.sns_topic_arn.outputs.topic_arn }}
+        
+        aws sns subscribe \
+        --topic-arn ${{ steps.sns_topic_arn.outputs.topic_arn }} \
+        --protocol email \
+        --notification-endpoint aakash.vishwakarma@cloudeq.com
+
+
+        aws sns subscribe \
+        --topic-arn ${{ steps.sns_topic_arn.outputs.topic_arn }} \
+        --protocol email \
+        --notification-endpoint abhishek.sharma@cloudeq.com
+
+  
